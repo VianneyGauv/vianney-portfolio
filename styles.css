@@ -98,10 +98,18 @@ strong { color: var(--ink); font-weight: 600; }
   align-items: center;
 }
 .hero h1 {
-  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-size: clamp(2.4rem, 7vw, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  margin: 14px 0 12px;
+  margin: 16px 0 4px;
+}
+.hero .title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 4vw, 1.85rem);
+  line-height: 1.2;
+  color: var(--accent);
+  margin-bottom: 14px;
 }
 .hero h1 em, .display em {
   font-family: var(--serif);
@@ -109,14 +117,6 @@ strong { color: var(--ink); font-weight: 600; }
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--accent);
-}
-.wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out 1s 2; }
-@keyframes wave {
-  0%, 60%, 100% { transform: rotate(0); }
-  10%, 30% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
 }
 .lead { font-size: 1.15rem; color: var(--ink-2); max-width: 32em; }
 .status {
@@ -275,18 +275,18 @@ details[open] .more { animation: open .35s ease; }
 }
 .feature-head p { color: var(--muted); font-size: 1.05rem; }
 
-.timeline { position: relative; display: grid; gap: 26px; padding-left: 4px; }
+.timeline { position: relative; display: grid; gap: 24px; }
 .timeline::before {
-  content: ""; position: absolute; left: 25px; top: 10px; bottom: 10px; width: 2px;
-  background: linear-gradient(var(--line), var(--line) 85%, transparent);
+  content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px;
+  background: var(--line);
 }
-.timeline li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; position: relative; }
+.timeline li { display: grid; grid-template-columns: 12px 1fr; gap: 20px; position: relative; }
 .t-dot {
-  width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 1.2rem;
-  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+  width: 12px; height: 12px; border-radius: 50%; margin-top: 5px;
+  background: var(--bg); border: 2px solid var(--accent);
   position: relative; z-index: 1;
 }
+.timeline li:first-child .t-dot { background: var(--accent); }
 .t-date { font-size: .8rem; color: var(--muted); font-weight: 500; }
 .t-body h3 { font-size: 1.02rem; font-weight: 650; margin: 2px 0 6px; }
 .t-body p:last-child { color: var(--ink-2); font-size: .92rem; }
@@ -303,8 +303,7 @@ details[open] .more { animation: open .35s ease; }
 .card p { color: var(--muted); font-size: .88rem; }
 
 /* ---------- Contact ---------- */
-.contact { text-align: center; margin-top: 112px; }
-.contact > p { color: var(--muted); font-size: 1.05rem; max-width: 30em; margin: 0 auto; }
+.contact > p { color: var(--muted); max-width: 34em; }
 
 .foot { margin-top: 80px; text-align: center; color: var(--muted); font-size: .8rem; }
 
@@ -356,7 +355,7 @@ details[open] .more { animation: open .35s ease; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; filter: none; transform: none; transition: none; }
-  .wave, .dot::after { animation: none; }
+  .dot::after { animation: none; }
   .dock-btn:hover, .btn:hover, .card:hover, .pills li:hover { transform: none; }
 }
 
@@ -377,6 +376,5 @@ details[open] .more { animation: open .35s ease; }
   .skill-row { grid-template-columns: 1fr; gap: 8px; }
   .skill-row h3 { padding-top: 0; }
   .cards { grid-template-columns: 1fr; }
-  .feature, .contact { margin-top: 88px; }
   .actions .btn { flex: 1 1 auto; justify-content: center; }
 }
